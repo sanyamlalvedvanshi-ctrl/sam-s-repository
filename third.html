@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>HERE IS THE WISH</title>
+
+  <!-- Google Font for beautiful handwriting -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+@media (min-width: 786px) {
+      
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Fullscreen video */
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* fills screen and crops if needed */
+      z-index: 1;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <video id="myVideo" autoplay loop controls playsinline>
+    <source src="thirdv.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <script>
+    const video = document.getElementById("myVideo");
+
+    // Ensure audio is not muted
+    video.muted = false;
+
+    // Attempt to play on page load (some browsers may block autoplay with sound)
+    video.play().catch(() => {
+      console.log("Autoplay with audio blocked. Please click play.");
+    });
+  </script>
+
+</body>
+</html>

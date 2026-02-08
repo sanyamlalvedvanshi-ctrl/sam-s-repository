@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PROPOSAL</title>
+    <style>
+        @media (min-width: 786px) {}
+
+        body {
+            background-image: url("firsti.jpeg");
+            background-repeat: no-repeat;
+            /* don’t tile */
+            background-position: center;
+            /* center the image */
+            background-size: cover;
+            height: 100vh;
+            /* full viewport height */
+            width: 100vw;
+            text-align: center;
+
+        }
+
+
+        div {
+            font-size: 60px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif cursive;
+            color: rgb(219, 15, 134);
+            position: relative;
+            top: 100px;
+            left: 20px;
+            -webkit-text-stroke: 2px #333;
+            /* border color and thickness */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            padding: 10px;
+        }
+
+
+        #button1 {
+            background-color: white;
+            color: #333;
+            border: 2px solid #ff69b4;
+            padding: 30px 50px;
+            font-size: 30px;
+            border-radius: 50px;
+            position: absolute;
+            top: 80%;
+            left: 35%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #button1:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        #button1:active {
+            background-color: rgb(228, 9, 9);
+            color: white;
+            border-color: red;
+        }
+
+        #button {
+            background-color: white;
+            color: #333;
+            border: 2px solid #ff69b4;
+            padding: 30px 50px;
+            font-size: 30px;
+            border-radius: 50px;
+            position: absolute;
+            top: 80%;
+            left: 55%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #button:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        #button:active {
+            background-color: rgb(228, 9, 9);
+            color: white;
+            border-color: red;
+        }
+
+        .anime {
+            animation-name: sam;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes sam {
+            from {}
+
+            to {
+                transform: translateX(100px) translateY(-300px)
+            }
+        }
+
+        .anime2 {
+            animation-name: sam2;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes sam2 {
+            from {
+                transform: translateX(100px) translateY(-300px);
+
+            }
+
+            to {
+                transform: translateX(-500px) translateY(-400px);
+            }
+        }
+
+        .anime3 {
+            animation-name: sam3;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes sam3 {
+            from {
+                transform: translateX(-500px) translateY(-400px);
+
+            }
+
+            to {
+                transform: translateX(100px) translateY(20px);
+            }
+        }
+
+        .anime4 {
+            animation-name: sam4;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes sam4 {
+            from {
+                transform: translateX(100px) translateY(20px);
+
+            }
+
+            to {
+                transform: translateX(-400px) translateY(-50px);
+            }
+        }
+
+        .anime5 {
+            animation-name: sam5;
+            animation-fill-mode: forwards;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes sam5 {
+            from {
+                transform: translateX(-400px) translateY(-50px);
+
+            }
+
+            to {
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+
+        .anime6 {
+            animation-name: sam6;
+            animation-fill-mode: forwards;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+            transform-origin: 40% 80%;
+        }
+
+        @keyframes sam6 {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(10);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="greeting"></div>
+    <button id="button1" onclick="play2()"> YESS! </button>
+    <button id="button" onclick="play()">NO</button>
+    <audio id="sound" loop>
+        <source src="daga.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        // get name from URL
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("name");
+
+        document.getElementById("greeting").innerText = `HEY ${name}  
+        WILL YOU 
+        BE MY VALENTINE?`;
+
+        let click = 0;
+        function play() {
+            const button =
+                document.getElementById("button");
+
+            click++;
+            button.classList.remove("anime", "anime2", "anime3", "anime4", "anime5");
+            void button.offsetWidth;
+            if (click % 5 == 1) {
+                button.classList.add("anime");
+                button.textContent = "WHY YOU CLICKED NO🤨?"
+            }
+            else if (click % 5 == 2) {
+                button.classList.add("anime2");
+                button.textContent = "JO BOLOGI KRUNGA MADAM JII 🥰"
+            }
+            else if (click % 5 == 3) {
+
+                button.classList.add("anime3");
+                button.textContent = "PLEASSEE CLICK YESS 🥺"
+            }
+
+            else if (click % 5 == 4) {
+
+                button.classList.add("anime4");
+                button.textContent = " HA HA GOT YOU ,YOU ALMOST CLICKED YESS 😉"
+            }
+            else if (click % 5 == 0) {
+
+                button.classList.add("anime5");
+                button.textContent = "OKAYYY ! FINEEE TRY AGAIN 😒"
+            }
+        }
+
+        function play2() {
+            const button = document.getElementById("button1");
+            button1.classList.add("anime6")
+            button1.textContent = "thank you <3"
+
+        }
+
+
+        document.getElementById("button1").addEventListener("click", () => {
+            setTimeout(() => {
+                window.location.href = "third.html";
+            }, 3000);
+        });
+
+        const audio = document.getElementById("sound");
+        document.getElementById("button")
+        button.addEventListener("click", () => {
+            audio.play();
+        })
+
+    </script>
+
+</body>
+
+</html>
